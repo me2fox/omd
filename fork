@@ -1,0 +1,51 @@
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+pid_t pid1,pid2,pid3;
+if ((pid1 = fork()) ==-1)
+{
+perror("fork");
+return 0;
+}
+if (pid1 == 0) { /* child */
+printf("\nProcess PID: %d ",getpid());
+printf("\nParent Process PPID: %d",getppid());
+}
+
+if (pid1 > 0) {
+sleep(2); /* parent */
+}
+
+/*repeat 2 more times*/
+
+if ((pid2 = fork()) ==-1)
+{
+perror("fork");
+return 0;
+}
+if (pid2 == 0) { /* child */
+printf("\nProcess PID: %d ",getpid());
+printf("\nParent Process PPID: %d",getppid());
+}
+
+if (pid2 > 0) {
+sleep(2); /* parent */
+}
+if ((pid3 = fork()) ==-1)
+{
+perror("fork");
+return 0;
+}
+if (pid3 == 0) { /* child */
+printf("\nProcess PID: %d ",getpid());
+printf("\nParent Process PPID: %d",getppid());
+}
+
+if (pid3 > 0) {
+sleep(2); /* parent */
+}
+return 0;
+}

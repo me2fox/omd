@@ -1,0 +1,28 @@
+Exec1.cpp
+
+#include <iostream.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+main()
+{
+cout<<"\n Exec1.cpp "; //assume there is no Exec2 Executable file
+if(( execl("/home/chandu/Exec2","exe2",NULL))!=0)
+cout<<”\nExec error..”;
+cout<<"\nEnd of Exec1.cpp...\n"; //this will not print
+return 0;
+}
+
+Exec2.cpp
+
+#include <iostream.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+main()
+{
+cout<<"\n Exec2.cpp ";
+cout<<"\n\nEnd of Exec2.cpp "<<endl<<endl<<endl;
+return 0;
+}
+
